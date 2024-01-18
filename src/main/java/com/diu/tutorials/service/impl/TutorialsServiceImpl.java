@@ -38,7 +38,8 @@ public class TutorialsServiceImpl implements TutorialsService {
     }
 
     @Override
-    public TutorialsVO updateTutorial(TutorialsVO tutorialsVO) {
+    public TutorialsVO updateTutorial(TutorialsVO tutorialsVO, String id) {
+        tutorialsRepository.deleteById(id);
         return tutorialsRepository.save(tutorialsVO);
     }
 
