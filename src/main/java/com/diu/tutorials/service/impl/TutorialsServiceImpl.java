@@ -33,6 +33,11 @@ public class TutorialsServiceImpl implements TutorialsService {
     }
 
     @Override
+    public TutorialsVO save(TutorialsVO tutorialsVO) {
+        return tutorialsRepository.save(tutorialsVO);
+    }
+
+    @Override
     public TutorialsVO updateTutorial(TutorialsVO tutorialsVO) {
         return tutorialsRepository.save(tutorialsVO);
     }
