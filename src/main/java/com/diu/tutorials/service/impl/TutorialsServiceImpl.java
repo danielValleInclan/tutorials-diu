@@ -19,22 +19,22 @@ public class TutorialsServiceImpl implements TutorialsService {
 
     @Override
     public List<TutorialsVO> getAllTutorials() {
-        return null;
+        return tutorialsRepository.findAll();
     }
 
     @Override
     public Optional<TutorialsVO> getTutorialById(String id) {
-        return Optional.empty();
+        return tutorialsRepository.findById(id);
     }
 
     @Override
     public List<TutorialsVO> findByPublished() {
-        return null;
+        return tutorialsRepository.findByPublished();
     }
 
     @Override
     public TutorialsVO updateTutorial(TutorialsVO tutorialsVO) {
-        return null;
+        return tutorialsRepository.save(tutorialsVO);
     }
 
     @Override
