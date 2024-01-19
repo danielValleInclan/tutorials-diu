@@ -6,13 +6,13 @@ import com.diu.tutorials.repository.TutorialsRepository;
 import com.diu.tutorials.service.TutorialsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RequestMapping("/api/v1/")
+@RestController
 public class TutorialsController implements TutorialsAPI {
 
     @Autowired
@@ -21,7 +21,7 @@ public class TutorialsController implements TutorialsAPI {
     private TutorialsRepository tutorialsRepository;
 
     @Override
-    @GetMapping("/tutorials/")
+    @GetMapping("/tutorials")
     public List<TutorialsVO> getAllTutorials() {
         return tutorialsService.getAllTutorials();
     }
