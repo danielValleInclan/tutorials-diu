@@ -45,11 +45,21 @@ public class TutorialsServiceImpl implements TutorialsService {
 
     @Override
     public ResponseEntity deleteTutorial(String id) {
-        return null;
+        try {
+            tutorialsRepository.deleteById(id);
+            return ResponseEntity.ok("Tutorial has been deleted!");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error deleting tutorial: " + e.getMessage());
+        }
     }
 
     @Override
     public ResponseEntity deleteAllTutotials() {
-        return null;
+        try {
+            tutorialsRepository.deleteAll();
+            return ResponseEntity.ok("All tutorials have been deleted!");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error deleting all tutorials: " + e.getMessage());
+        }
     }
 }

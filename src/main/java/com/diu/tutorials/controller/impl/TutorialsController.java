@@ -29,7 +29,7 @@ public class TutorialsController implements TutorialsAPI {
 
     @Override
     @GetMapping("/tutorials/{id}")
-    public Optional<TutorialsVO> getTutorialsById(String id) {
+    public Optional<TutorialsVO> getTutorialsById(@PathVariable String id) {
         return tutorialsService.getTutorialById(id);
     }
 
@@ -41,25 +41,26 @@ public class TutorialsController implements TutorialsAPI {
 
     @Override
     @PostMapping("/tutorials")
-    public TutorialsVO save(TutorialsVO tutorialsVO) {
+    public TutorialsVO save(@RequestBody TutorialsVO tutorialsVO) {
         return tutorialsService.save(tutorialsVO);
     }
 
     @Override
     @PutMapping("/tutorials/{id}")
-    public TutorialsVO update(TutorialsVO tutorialsVO, String id) {
+    public TutorialsVO update(@RequestBody TutorialsVO tutorialsVO, @PathVariable String id) {
         return tutorialsService.updateTutorial(tutorialsVO, id);
     }
 
     @Override
     @DeleteMapping("/tutorials/{id}")
-    public ResponseEntity deleteTutorial(String id) {
+    public ResponseEntity deleteTutorial(@PathVariable String id) {
         tutorialsService.deleteTutorial(id);
         return new ResponseEntity<>("Tutorial has been deleted!", HttpStatus.OK);
     }
 
 
     @Override
+    @DeleteMapping("/tutorials/all")
     public ResponseEntity deleteAllTutorials() {
         tutorialsService.deleteAllTutotials();
         return new ResponseEntity<>("All tutorials have been deleted!", HttpStatus.OK);
