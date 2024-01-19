@@ -5,6 +5,7 @@ import com.diu.tutorials.model.TutorialsVO;
 import com.diu.tutorials.repository.TutorialsRepository;
 import com.diu.tutorials.service.TutorialsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,22 +40,29 @@ public class TutorialsController implements TutorialsAPI {
     }
 
     @Override
+    @PostMapping("/tutorials")
     public TutorialsVO save(TutorialsVO tutorialsVO) {
-        return null;
+        return tutorialsService.save(tutorialsVO);
     }
 
     @Override
+    @PutMapping("/tutorials/{id}")
     public TutorialsVO update(TutorialsVO tutorialsVO, String id) {
-        return null;
+        return tutorialsService.updateTutorial(tutorialsVO, id);
     }
 
     @Override
+    @DeleteMapping("/tutorials/{id}")
     public ResponseEntity deleteTutorial(String id) {
-        return null;
+        tutorialsService.deleteTutorial(id);
+        return new ResponseEntity<>("Tutorial has been deleted!", HttpStatus.OK);
     }
+
 
     @Override
     public ResponseEntity deleteAllTutorials() {
-        return null;
+        tutorialsService.deleteAllTutotials();
+        return new ResponseEntity<>("All tutorials have been deleted!", HttpStatus.OK);
     }
+
 }
