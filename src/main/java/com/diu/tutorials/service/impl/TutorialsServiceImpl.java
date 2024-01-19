@@ -29,7 +29,7 @@ public class TutorialsServiceImpl implements TutorialsService {
 
     @Override
     public List<TutorialsVO> findByPublished() {
-        return tutorialsRepository.findByPublished();
+        return tutorialsRepository.findByPublished(true);
     }
 
     @Override

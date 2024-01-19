@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface TutorialsRepository extends MongoRepository<TutorialsVO, String> {
-    List<TutorialsVO> findByPublished();
+    List<TutorialsVO> findByPublished(boolean published);
 }
