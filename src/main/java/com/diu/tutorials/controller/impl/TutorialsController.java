@@ -50,6 +50,11 @@ public class TutorialsController implements TutorialsAPI {
     public TutorialsVO update(@RequestBody TutorialsVO tutorialsVO, @PathVariable String id) {
         return tutorialsService.updateTutorial(tutorialsVO, id);
     }
+    @Override
+    @GetMapping("/tutorials/title/{title}")
+    public List<TutorialsVO> findByTitleContaining(@PathVariable String title) {
+        return tutorialsService.findByTitleContaining(title);
+    }
 
     @Override
     @DeleteMapping("/tutorials/{id}")

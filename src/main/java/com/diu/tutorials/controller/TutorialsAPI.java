@@ -13,6 +13,7 @@ public interface TutorialsAPI {
     List<TutorialsVO> findByPublished();
     TutorialsVO save(TutorialsVO tutorialsVO);
     TutorialsVO update(TutorialsVO tutorialsVO, String id);
+    List<TutorialsVO> findByTitleContaining(String title);
     ResponseEntity deleteTutorial(String id);
     ResponseEntity deleteAllTutorials();
 }

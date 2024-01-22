@@ -12,6 +12,8 @@ public interface TutorialsService {
     List<TutorialsVO> findByPublished();
     TutorialsVO save(TutorialsVO tutorialsVO);
     TutorialsVO updateTutorial(TutorialsVO tutorialsVO, String id);
+
+    List<TutorialsVO> findByTitleContaining(String title);
     ResponseEntity deleteTutorial(String id);
     ResponseEntity deleteAllTutotials();
 

@@ -44,6 +44,11 @@ public class TutorialsServiceImpl implements TutorialsService {
     }
 
     @Override
+    public List<TutorialsVO> findByTitleContaining(String title) {
+        return tutorialsRepository.findByTitleContaining(title);
+    }
+
+    @Override
     public ResponseEntity deleteTutorial(String id) {
         try {
             tutorialsRepository.deleteById(id);
